@@ -4,17 +4,18 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #1e202a;
+  background-image: linear-gradient(#1f212e, #1f212e 30%, #1e202a 30%);
   color: #8b97c6;
   font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
+  font-size: 14px;
+  font-weight: 700;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center; }
 
 .container {
-  width: 80vw;
+  width: 90vw;
   max-width: 1200px;
   padding: 2rem 1rem; }
 
@@ -38,11 +39,36 @@ body {
   .header__title {
     color: #fff;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem; }
-  .header__total {
-    font-weight: 700; }
+    font-size: 2rem; }
   .header__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff; }
+    .header__toggle-btn {
+      position: relative;
+      width: 2.5rem;
+      height: 1.3rem;
+      -webkit-appearance: none;
+      background: linear-gradient(to right, #378fe6, #3eda82);
+      outline: none;
+      border-radius: 20px;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out; }
+      .header__toggle-btn:hover {
+        filter: brightness(1.2); }
+      .header__toggle-btn::before {
+        content: "";
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        top: 2px;
+        left: 3px;
+        background: #252a41; }
+      .header__toggle-btn:checked::before {
+        left: 1.3rem; }
 
 .main-cards {
   display: grid;
@@ -56,16 +82,17 @@ body {
     background-color: #252a41;
     padding: 1.5rem 2rem;
     border-radius: 7px;
-    flex: 1; }
+    flex: 1;
+    transition: all 0.4s ease-in-out; }
+    .main-cards__card:hover {
+      filter: brightness(2); }
   .main-cards__handle {
     display: flex;
     align-items: center; }
     .main-cards__handle-text {
-      margin-left: 0.5rem;
-      font-weight: 700; }
+      margin-left: 0.5rem; }
   .main-cards__number {
     font-size: 4rem;
-    font-weight: 700;
     color: #fff;
     padding: 1rem 0 0 0; }
   .main-cards__follower {
@@ -79,6 +106,16 @@ body {
 #twitter {
   border-top: #1ca0f2 4px solid; }
 
+#instagram {
+  position: relative; }
+  #instagram .border-top {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 0;
+    border-radius: 7px 7px 0 0;
+    background: linear-gradient(to right, #fdc468, #df4996); }
+
 #youtube {
   border-top: #c4032a 4px solid;
   margin-right: 0; }
@@ -87,7 +124,7 @@ body {
   margin-top: 2rem; }
   .overview__title {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem; }
   .overview__grid {
     display: grid;
@@ -100,10 +137,12 @@ body {
     grid-gap: 2rem;
     grid-template-areas: "text social-icon" "number change";
     border-radius: 7px;
-    padding: 1rem; }
+    padding: 1rem;
+    transition: all 0.4s ease-in-out; }
+    .overview__card:hover {
+      filter: brightness(2); }
     .overview__card-text {
-      grid-area: text;
-      font-weight: 700; }
+      grid-area: text; }
     .overview__card-social-icon {
       grid-area: social-icon;
       justify-self: end; }
@@ -111,11 +150,36 @@ body {
       grid-area: number;
       font-size: 2rem;
       color: #fff;
-      font-weight: 700;
       align-self: flex-end; }
     .overview__card-change {
       grid-area: change;
       align-self: flex-end; }
+
+body.light-theme {
+  background-image: linear-gradient(#f5f7ff, #f5f7ff 30%, white); }
+  body.light-theme .header__toggle-btn {
+    background: #aeb3cb; }
+  body.light-theme .header__toggle-btn:hover {
+    background: linear-gradient(to right, #378fe6, #3eda82); }
+  body.light-theme .header__toggle-btn:before {
+    background: white; }
+  body.light-theme h1,
+  body.light-theme h2,
+  body.light-theme .main-cards__number,
+  body.light-theme .overview__card-number {
+    color: #1e202a; }
+  body.light-theme .overview__card,
+  body.light-theme .main-cards__card {
+    background: #f0f2fa; }
+  body.light-theme .main-cards__card:hover,
+  body.light-theme .overview__card:hover {
+    filter: brightness(90%); }
+  body.light-theme .header__total,
+  body.light-theme .header__toggle,
+  body.light-theme .main-cards__handle-text,
+  body.light-theme .overview__card-text,
+  body.light-theme .overview__title {
+    color: #63687e; }
 
 @media (max-width: 1100px) {
   body {

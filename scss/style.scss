@@ -5,10 +5,15 @@
 }
 
 body {
-  background-color: hsl(230, 17%, 14%);
+  background-image: linear-gradient(
+    hsl(232, 19%, 15%),
+    hsl(232, 19%, 15%) 30%,
+    hsl(230, 17%, 14%) 30%
+  );
   color: hsl(228, 34%, 66%);
   font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
+  font-size: 14px;
+  font-weight: 700;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -16,7 +21,7 @@ body {
 }
 
 .container {
-  width: 80vw;
+  width: 90vw;
   max-width: 1200px;
   padding: 2rem 1rem;
 }
@@ -48,13 +53,51 @@ body {
   &__title {
     color: #fff;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
-  &__total {
-    font-weight: 700;
-  }
+
   &__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+
+    &-btn {
+      position: relative;
+      width: 2.5rem;
+      height: 1.3rem;
+      -webkit-appearance: none;
+      background: linear-gradient(
+        to right,
+        hsl(210, 78%, 56%),
+        hsl(146, 68%, 55%)
+      );
+      outline: none;
+      border-radius: 20px;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        filter: brightness(1.2);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        top: 2px;
+        left: 3px;
+        background: hsl(228, 28%, 20%);
+        // transition: all 0.4s ease-in-out;
+      }
+
+      &:checked::before {
+        left: 1.3rem;
+      }
+    }
   }
 }
 
@@ -72,6 +115,11 @@ body {
     padding: 1.5rem 2rem;
     border-radius: 7px;
     flex: 1;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      filter: brightness(2);
+    }
   }
 
   &__handle {
@@ -80,13 +128,11 @@ body {
 
     &-text {
       margin-left: 0.5rem;
-      font-weight: 700;
     }
   }
 
   &__number {
     font-size: 4rem;
-    font-weight: 700;
     color: #fff;
     padding: 1rem 0 0 0;
   }
@@ -107,6 +153,20 @@ body {
 }
 
 #instagram {
+  position: relative;
+
+  .border-top {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 0;
+    border-radius: 7px 7px 0 0;
+    background: linear-gradient(
+      to right,
+      hsl(37, 97%, 70%),
+      hsl(329, 70%, 58%)
+    );
+  }
 }
 
 #youtube {
@@ -119,7 +179,7 @@ body {
 
   &__title {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -139,10 +199,15 @@ body {
       "number change";
     border-radius: 7px;
     padding: 1rem;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      filter: brightness(2);
+    }
 
     &-text {
       grid-area: text;
-      font-weight: 700;
+      // font-weight: 700;
     }
 
     &-social-icon {
@@ -154,7 +219,7 @@ body {
       grid-area: number;
       font-size: 2rem;
       color: #fff;
-      font-weight: 700;
+      // font-weight: 700;
       align-self: flex-end;
     }
 
@@ -162,6 +227,55 @@ body {
       grid-area: change;
       align-self: flex-end;
     }
+  }
+}
+
+// Light mode styles
+body.light-theme {
+  background-image: linear-gradient(
+    hsl(225, 100%, 98%),
+    hsl(225, 100%, 98%) 30%,
+    hsl(0, 0%, 100%)
+  );
+
+  .header__toggle-btn {
+    background: hsl(230, 22%, 74%);
+  }
+  .header__toggle-btn:hover {
+    background: linear-gradient(
+      to right,
+      hsl(210, 78%, 56%),
+      hsl(146, 68%, 55%)
+    );
+  }
+
+  .header__toggle-btn:before {
+    background: hsl(0, 0%, 100%);
+  }
+
+  h1,
+  h2,
+  .main-cards__number,
+  .overview__card-number {
+    color: hsl(230, 17%, 14%);
+  }
+
+  .overview__card,
+  .main-cards__card {
+    background: hsl(227, 47%, 96%);
+  }
+
+  .main-cards__card:hover,
+  .overview__card:hover {
+    filter: brightness(90%);
+  }
+
+  .header__total,
+  .header__toggle,
+  .main-cards__handle-text,
+  .overview__card-text,
+  .overview__title {
+    color: hsl(228, 12%, 44%);
   }
 }
 
