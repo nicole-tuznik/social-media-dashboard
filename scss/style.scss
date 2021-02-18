@@ -284,3 +284,29 @@ body.light-theme {
     height: auto;
   }
 }
+
+@media (max-width: 620px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__text {
+      width: 100%;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        border-bottom: hsl(228, 34%, 66%) solid 2px;
+      }
+    }
+
+    &__toggle {
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+}
